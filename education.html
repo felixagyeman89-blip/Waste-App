@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waste Management Education - Kwadaso</title>
+  <link rel="shortcut icon" href="/images/fav.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="shortcut icon" href="/images/fav.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar-brand .brand img {
+      height: 150px;
+    }
+
+    .hero {
+      background: #198754;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+    }
+
+    .quiz-section h5 {
+      margin-top: 1.5rem;
+    }
+
+    .faq-section summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .faq-section details {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #198754;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/images/navlogo.png" alt="Logo" height="150"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="signin.html" id="accountsBtn">Accounts</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Learn How to Manage Waste Responsibly</h1>
+    <p>Videos, guides, quizzes, games, and community engagement for a cleaner Kwadaso</p>
+  </div>
+</section>
+
+<!-- Video Tutorials -->
+<section class="container my-5">
+  <h2 class="mb-4">Video Tutorials</h2>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/K6ppCC3lboU?si=Tn1vwQAhU5SAwe24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+    <div class="col-md-6">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VQTtg3KgVv4?si=12nXqtEZ7VXDhyo9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Downloadable Resources -->
+<section class="container my-5">
+  <h2 class="mb-4">Downloadable Guides And Games</h2>
+  <ul>
+    <li><a href="https://www.vwrm.com/wp-content/uploads/2024/04/Waste-Reduction-Sorting-Guide-2024.pdf" download>Download Sorting Guide (PDF) 📕</a></li>
+    <li><a href="https://www.cityofpa.us/DocumentCenter/View/1890/Composting-Basics-brochure?bidId=" download>Download Composting Basics (PDF) 📕</a></li>
+    <li><a href="https://eco-cycleco.recycle.game/" download>Play Eco-Cycle Sorting Game 🎮 </a></li>
+  </ul>
+</section>
+
+<!-- FAQ Section -->
+<section class="container faq-section my-5">
+  <h2 class="mb-4">Frequently Asked Questions</h2>
+  <details>
+    <summary>What is waste segregation?</summary>
+    <p>Waste segregation is the process of separating waste into different categories to improve recycling and disposal efficiency.</p>
+  </details>
+  <details>
+    <summary>How do I compost at home?</summary>
+    <p>You can compost food scraps and biodegradable materials in a compost bin with proper ventilation and moisture balance.</p>
+  </details>
+</section>
+
+<!-- Firebase Feedback Form -->
+<section class="container my-5">
+  <h2 class="mb-4">Ask a Question or Suggest a Topic</h2>
+  <form id="educationForm">
+    <div class="mb-3">
+      <input type="text" class="form-control" id="userName" placeholder="Your Name" required />
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" id="userQuestion" rows="4" placeholder="Type your question or suggestion..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</section>
+
+<!-- Quiz Section -->
+<section class="container quiz-section my-5">
+  <h2 class="mb-4">Test Your Knowledge</h2>
+  <div id="quizArea"></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <small>&copy; 2025 Kwadaso Waste Management. All Rights Reserved.</small>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/scripts/firebase-config.js"></script>
+<script>
+    const questions = [
+      { q: "What does 'reduce' mean in waste management?", a: "Use less material", options: ["Recycle items", "Use less material", "Burn waste", "Buy more products"] },
+      { q: "Which of the following is biodegradable?", a: "Banana peel", options: ["Plastic bag", "Glass bottle", "Banana peel", "Metal can"] },
+      { q: "Best color for recycling bin?", a: "Blue", options: ["Black", "Blue", "Red", "Yellow"] },
+      { q: "How long does plastic take to decompose?", a: "Hundreds of years", options: ["5 years", "10 years", "Hundreds of years", "Never"] },
+      { q: "Which waste should NOT go in compost?", a: "Plastic", options: ["Leaves", "Plastic", "Vegetable peels", "Fruit scraps"] },
+      { q: "What is e-waste?", a: "Electronic waste", options: ["Energy waste", "Electronic waste", "Environmental waste", "Emergency waste"] },
+      { q: "Best place to dispose batteries?", a: "Special recycling bin", options: ["Trash can", "Compost", "Landfill", "Special recycling bin"] },
+      { q: "Which of these is recyclable?", a: "Aluminum can", options: ["Styrofoam", "Aluminum can", "Plastic bag", "Ceramics"] },
+      { q: "What color bin is for compost in many areas?", a: "Green", options: ["Blue", "Black", "Red", "Green"] },
+      { q: "What can be done with glass bottles?", a: "Recycle", options: ["Burn", "Compost", "Recycle", "Landfill"] },
+      { q: "Why is sorting waste important?", a: "Improves recycling efficiency", options: ["Creates jobs", "Improves recycling efficiency", "Costs more", "Is fun"] },
+      { q: "Which is a greenhouse gas from landfills?", a: "Methane", options: ["Carbon monoxide", "Oxygen", "Methane", "Hydrogen"] },
+      { q: "What is the 3R principle?", a: "Reduce, Reuse, Recycle", options: ["Read, Recycle, Remove", "Reduce, Reuse, Recycle", "Reuse, Recycle, React", "Reduce, React, Refill"] },
+      { q: "How often should you empty compost?", a: "Weekly", options: ["Daily", "Weekly", "Monthly", "Yearly"] },
+      { q: "What is hazardous waste?", a: "Harmful to health/environment", options: ["Any trash", "Wet waste", "Harmful to health/environment", "Organic food"] },
+      { q: "Which item is best reused?", a: "Glass jar", options: ["Plastic bag", "Banana peel", "Glass jar", "Cardboard"] },
+      { q: "Recycling helps to?", a: "Conserve natural resources", options: ["Create pollution", "Conserve natural resources", "Use more water", "Burn plastic"] },
+      { q: "What to do with old electronics?", a: "Take to e-waste center", options: ["Trash", "Compost", "Burn", "Take to e-waste center"] },
+      { q: "Best way to reduce waste?", a: "Avoid single-use items", options: ["Buy more", "Avoid single-use items", "Use landfill", "Compost plastic"] },
+      { q: "Organic waste includes?", a: "Fruit peels", options: ["Metal", "Glass", "Fruit peels", "Plastic"] },
+    ];
+  
+    const quizContainer = document.getElementById("quizArea");
+    const questionsPerPage = 5;
+    let currentPage = 1;
+  
+    function renderQuizPage(page) {
+      quizContainer.innerHTML = "";
+      const start = (page - 1) * questionsPerPage;
+      const end = start + questionsPerPage;
+      const currentQuestions = questions.slice(start, end);
+  
+      currentQuestions.forEach((item, idx) => {
+        const globalIdx = start + idx;
+        const card = document.createElement("div");
+        card.className = "card mb-3 p-3";
+        card.innerHTML = `
+          <h5>Q${globalIdx + 1}: ${item.q}</h5>
+          ${item.options.map(opt => `
+            <div>
+              <input type="radio" name="q${globalIdx}" value="${opt}" id="q${globalIdx}-${opt}">
+              <label for="q${globalIdx}-${opt}">${opt}</label>
+            </div>`).join("")}
+          <button class="btn btn-sm btn-outline-success mt-2" onclick="checkAnswer(${globalIdx}, '${item.a}')">Check Answer</button>
+          <div id="feedback-${globalIdx}" class="mt-2"></div>
+        `;
+        quizContainer.appendChild(card);
+      });
+  
+      // Navigation
+      const nav = document.createElement("div");
+      nav.className = "d-flex justify-content-between align-items-center mt-4";
+      nav.innerHTML = `
+        <button class="btn btn-outline-secondary" ${page === 1 ? "disabled" : ""} onclick="changePage(-1)">Previous</button>
+        <span>Page ${page} of ${Math.ceil(questions.length / questionsPerPage)}</span>
+        <button class="btn btn-outline-secondary" ${end >= questions.length ? "disabled" : ""} onclick="changePage(1)">Next</button>
+      `;
+      quizContainer.appendChild(nav);
+    }
+  
+    function changePage(delta) {
+      const totalPages = Math.ceil(questions.length / questionsPerPage);
+      currentPage += delta;
+      if (currentPage < 1) currentPage = 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      renderQuizPage(currentPage);
+    }
+  
+    function checkAnswer(index, correct) {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const feedback = document.getElementById(`feedback-${index}`);
+      if (!selected) {
+        feedback.innerHTML = "<span class='text-warning'>Please select an answer.</span>";
+        return;
+      }
+      feedback.innerHTML = selected.value === correct
+        ? "<span class='text-success'>Correct!</span>"
+        : `<span class='text-danger'>Incorrect. Correct answer is: ${correct}</span>`;
+    }
+  
+    renderQuizPage(currentPage);
+  </script>
+  
+
+</body>
+</html>

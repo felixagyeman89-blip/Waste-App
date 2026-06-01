@@ -1,0 +1,109 @@
+{
+    "name": "EducationalContent",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "tw": {
+            "type": "string"
+          }
+        },
+        "description": "Title in multiple languages"
+      },
+      "content": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "tw": {
+            "type": "string"
+          }
+        },
+        "description": "Content in multiple languages"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "waste_separation",
+          "recycling",
+          "composting",
+          "hazardous_waste",
+          "environmental_impact"
+        ],
+        "description": "Content category"
+      },
+      "media_type": {
+        "type": "string",
+        "enum": [
+          "article",
+          "video",
+          "infographic",
+          "audio"
+        ],
+        "default": "article",
+        "description": "Type of educational media"
+      },
+      "media_url": {
+        "type": "string",
+        "description": "URL to media file"
+      },
+      "target_audience": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "household",
+            "business",
+            "market_woman",
+            "general"
+          ]
+        },
+        "description": "Target user types"
+      },
+      "difficulty_level": {
+        "type": "string",
+        "enum": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ],
+        "default": "beginner",
+        "description": "Content difficulty"
+      },
+      "is_featured": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether to feature this content"
+      },
+      "view_count": {
+        "type": "number",
+        "default": 0,
+        "description": "Number of views"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Content tags for filtering"
+      }
+    },
+    "required": [
+      "title",
+      "content",
+      "category"
+    ],
+    "rls": {
+      "read": {},
+      "write": {
+        "user_condition": {
+          "role": "admin"
+        }
+      }
+    }
+  }

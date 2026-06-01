@@ -1,0 +1,149 @@
+{
+    "name": "WastePickup",
+    "type": "object",
+    "properties": {
+      "customer_id": {
+        "type": "string",
+        "description": "ID of the customer requesting pickup"
+      },
+      "collector_id": {
+        "type": "string",
+        "description": "ID of assigned waste collector"
+      },
+      "scheduled_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Scheduled pickup date"
+      },
+      "scheduled_time": {
+        "type": "string",
+        "description": "Scheduled pickup time slot"
+      },
+      "waste_type": {
+        "type": "string",
+        "enum": [
+          "organic",
+          "recyclable",
+          "electronic",
+          "hazardous",
+          "general"
+        ],
+        "description": "Type of waste to be collected"
+      },
+      "estimated_weight": {
+        "type": "number",
+        "description": "Estimated weight in kg"
+      },
+      "pickup_address": {
+        "type": "string",
+        "description": "Pickup location address"
+      },
+      "pickup_location": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "scheduled",
+          "in_progress",
+          "completed",
+          "cancelled",
+          "rescheduled"
+        ],
+        "default": "scheduled",
+        "description": "Current status of pickup"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "urgent"
+        ],
+        "default": "medium",
+        "description": "Priority level"
+      },
+      "payment_status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "paid",
+          "failed",
+          "refunded"
+        ],
+        "default": "pending",
+        "description": "Payment status"
+      },
+      "amount": {
+        "type": "number",
+        "description": "Cost for the pickup service"
+      },
+      "payment_method": {
+        "type": "string",
+        "enum": [
+          "mtn_momo",
+          "airteltigo_money",
+          "vodafone_cash",
+          "cash"
+        ],
+        "description": "Payment method used"
+      },
+      "special_instructions": {
+        "type": "string",
+        "description": "Special handling instructions"
+      },
+      "actual_weight": {
+        "type": "number",
+        "description": "Actual weight collected"
+      },
+      "completion_notes": {
+        "type": "string",
+        "description": "Notes from collector upon completion"
+      },
+      "customer_rating": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 5,
+        "description": "Customer rating of service"
+      },
+      "photos": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Photos of waste before/after collection"
+      }
+    },
+    "required": [
+      "customer_id",
+      "scheduled_date",
+      "waste_type",
+      "pickup_address"
+    ],
+    "rls": {
+      "read": {
+        "customer_id": "{{user.id}}"
+      },
+      "write": {
+        "$or": [
+          {
+            "customer_id": "{{user.id}}"
+          },
+          {
+            "user_condition": {
+              "role": "admin"
+            }
+          }
+        ]
+      }
+    }
+  }
